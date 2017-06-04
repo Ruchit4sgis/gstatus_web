@@ -1,0 +1,58 @@
+﻿@model gstatus.Models.student_data
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>student_data</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Member_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.standard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.standard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.room_cup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.room_cup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.A_year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.A_year)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

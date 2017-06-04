@@ -1,0 +1,150 @@
+﻿
+  
+
+
+
+@model IEnumerable<object>
+    @{        
+            List<gstatus.Models.student_data> a = Model.ToList()[0] as List<gstatus.Models.student_data>;
+            List<gstatus.Models.gcode> b = Model.ToList()[0] as List<gstatus.Models.gcode>;
+     }
+
+    @{
+        ViewBag.Title = "Home";
+    }
+
+    <h2>Home</h2>
+
+@{
+    datagstatus ca = new datagstatus();
+    List<object> mymodel = new List<object>();
+    mymodel.Add(ca.gcode.ToList());
+}
+
+
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<form method="post" id="myform"> 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                   <div class="col-md-2">
+                       <input class="form-control" id="mid" onkeyup="midfilter()" name="mid" placeholder="Member Id" />
+                   </div>
+                    <div class="col-md-2">
+                        <input class="form-control" id="myInput" onchange="myFunction()" onload="myFunction()" onkeyup="myFunction()" name="room_s" placeholder="Room No" value="@ViewBag.room_ss" />
+                    </div>
+                    <div class="col-md-3">
+                        @Html.DropDownList("Reason", new SelectList(ca.gcode, "c_Attributs", "c_Attributs"), new { @class = "form-control", style = "width:200px" })
+                </div>
+                    <div class="col-md-3">
+                        <input type="date" name="date1" id="date1" maxlength="25" size="25" style="padding-top:4px; font-size:15px" />
+                    </div>
+                
+            </div>
+        </div>
+        <br />
+        <div class="col-md-12">
+            <div class="row">
+                <table class="table table-hover" id="myTable">
+                    <tr>
+                        <th>
+                            Member ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Standard
+                        </th>
+                        <th>
+                            Room_cup
+                        </th>
+                        <th>
+                            Year
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @*Body*@
+
+                    @foreach (var item in a)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Member_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.standard)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.room_cup)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.A_year)
+                            </td>
+                            <td>
+                                <button name="student_id" type="submit" class="btn btn-danger" id="btnSubmit" value="@Html.DisplayFor(modelItem => item.Id)">YES</button>
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div> 
+     
+
+</form>
+
+<script> 
+    
+    document.getElementById("date1").value = "@ViewBag.date11";
+    window.onload = myFunction;   
+    function myFunction() {
+        
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+<script>   
+   
+    function midfilter() {
+
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("mid");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>

@@ -1,0 +1,64 @@
+﻿@model gstatus.Models.student_data
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>student_data</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Member_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.standard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.standard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.room_cup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.room_cup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.A_year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.A_year)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

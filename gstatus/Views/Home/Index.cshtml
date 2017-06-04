@@ -1,0 +1,58 @@
+﻿@model gstatus.Models.Login
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;  
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Gurukul Arts Hyderabad</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <script src="~/Content/login.js"></script>
+</head>
+<body style="background-image: url('../../Content/1920x1080-data-out-255-47081817-white-background-images.jpg');
+                 background-repeat: no-repeat;
+            position: relative;
+            width: 85%;
+            height: 610px;
+            margin-left: auto;
+            margin-right: auto;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <h1 class="text-center login-title">Sign in to continue to gStatus Online</h1>
+                <div class="account-wall">
+                    <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                         alt="">
+                    <form class="form-signin" method="post">
+
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })<br />
+                        @Html.PasswordFor(m => m.password, new { @class = "form-control" })
+                        <br />
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                            Sign in
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+
+
+

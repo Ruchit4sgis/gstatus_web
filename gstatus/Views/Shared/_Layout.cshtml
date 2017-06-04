@@ -1,0 +1,83 @@
+﻿
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Gurukul Arts Hyderabad</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    
+</head>
+
+@{ if (Session["UserName"] != null)
+    {
+
+        ViewBag.user = Session["UserName"].ToString();
+       
+    }
+    else
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+<body style="background-image: url('../../Content/1920x1080-data-out-255-47081817-white-background-images.jpg');
+            background-repeat: no-repeat;
+            position: relative;
+            width: 85%;
+            height: 610px;
+            margin-left: auto;
+            margin-right: auto;
+      ">
+    
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> 
+                    <a class="navbar-brand" href="#">gStatus</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    @if (Session["Roal"].ToString() == "admin")
+            {
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="~/Home/Home">Home</a></li>
+                            <li><a href="~/gcodes/">gCodes</a></li>
+                            <li><a href="~/student_data_detail/">Student Details</a></li>
+                            <li><a href="~/Datapanel/ImportData">Data Import</a></li>
+                            <li><a href="~/Logins/">Account Details</a></li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="~/Home/Home">Home</a></li>
+                        </ul>
+                    }
+                    <ul class="nav navbar-nav navbar-right"><li><a href="~/Home/Logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li></ul>
+                    <ul class="nav navbar-nav navbar-right"><li><a href="#"><span class="glyphicon glyphicon-user"></span> Jay Swaminarayan @ViewBag.user </a></li></ul>
+
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+
+
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Gurukul Arts, Hyderabad</p>
+            </footer>
+        </div>
+
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </div>
+</body>
+</html>

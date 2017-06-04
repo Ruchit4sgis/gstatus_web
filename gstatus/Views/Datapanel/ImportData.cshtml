@@ -1,0 +1,31 @@
+﻿
+
+
+@model IEnumerable<gstatus.Models.student_data>
+
+
+
+
+
+<form method="post" enctype="multipart/form-data">
+    <br />
+    <div>
+        <input name="file" type="file" required />
+       <br />
+        <h3>Import Student Data</h3>
+        <div class="form-group">
+            <button class="btn btn-success" value="g_details" name="command" type="submit">Import</button><br /><br />
+            <button class="btn btn-default"><a href="~/Datapanel/student">Downloade Sample File</a></button><br />           
+
+        </div>
+        @ViewBag.Success
+
+        <h3>Gstatus Code</h3>
+        <button class="btn btn-default"><a href="~/Datapanel/gcode">Downloade Sample File</a></button><br /><br />
+        <button class="btn btn-success" value="g_code" name="command" type="submit">Import</button>
+
+        <h3>gStatus Records</h3>
+        <button class="btn btn-default"><a href="~/Datapanel/records">Downloade gStatus Records</a></button><br />
+
+    </div>
+</form>
